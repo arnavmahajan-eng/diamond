@@ -173,6 +173,8 @@ class Game:
                 for j, col in enumerate(header):
                     for i, row in enumerate(col):
                         draw_text(row, idx_line=i, idx_column=j, num_cols=num_cols)
+                fps_surface = font.render(f"FPS: {clock.get_fps():.1f}", True, pygame.Color("cyan"))
+                screen.blit(fps_surface, (x_header + header_width - fps_surface.get_width() - 5, y_header + 5))
 
             draw_low_res = self.verbose and "obs_low_res" in info and self.width == 280
             if draw_low_res:
